@@ -94,11 +94,3 @@ def answer_private_public():
         answer_private_public()
     return answer['toppings']
 
-answer_all()
-answer_choose_playlist([{
-                    'name': 'TECHNOO'
-                },
-                {
-                    'name': 'HOTs'
-                }])
-answer_private_public()
