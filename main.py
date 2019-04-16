@@ -5,6 +5,7 @@ Author:     Alexander Sarmanow
 Email:      alexander.sarmanow@mailbox.tu-dresden.de
 """
 import argparse
+import os
 
 import interface
 import api
@@ -15,13 +16,14 @@ import doc
 parser = argparse.ArgumentParser(description='Paste your Channel ID')
 parser.add_argument('--channelID', help='Paste your Channel ID')
 
-def main():
-    pass
-
+CREDENTIALS_DIR = 'credentials'
 
 if __name__ == '__main__':
     args = parser.parse_args()
     channel_id = args.channelID
+
+    if not os.path.exists(CREDENTIALS_DIR):
+        os.makedirs(CREDENTIALS_DIR)
 
     playlists = list()
 
