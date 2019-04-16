@@ -22,18 +22,35 @@ def main():
 if __name__ == '__main__':
     args = parser.parse_args()
     channel_id = args.channelID
+
+    playlists = list()
+
     private = interface.answer_private_public()
-    if private:
+    if 'private' in private:
         api_key = key_handle.get_api_file()
+        api_o = api.PrivateAPI(api_key)
     else:
         api_key = key_handle.get_api_key()
+        api_o = api.PublicAPI(api_key)
     fetch_all = interface.answer_all()
-    if fetch_all:
-        pass
-    else:
-        if private:
-            playlist_list = api.api_private(api_key)
+    if 'fetch all playlists' in fetch_all:
+        if 'private' in private:
+            playlist_list = api_o.private_pl_list()
         else:
-            playlist_list = api.api_public(api_key,channel_id=channel_id)
-        playlist_list = interface.answer_choose_playlist(api)
-    main()
+            playlist_list = api_o.public_pl_list(channel_id=channel_id)
+    else:
+        if 'private' in private:
+            playlist_list = api_o.private_pl_list()
+        else:
+            playlist_list = api_o.public_pl_list(channel_id=channel_id)
+        playlist_choose = interface.answer_choose_playlist(playlist_list)
+        playlist_list = [item for item in playlist_list if item['snippet']['title'] in playlist_choose]
+    for pl in playlist_list:
+        if 'private' in private:
+            pl_content = api_o.private_playlist(pl['id'])
+            doc.create_doc(pl['snippet']['title'], pl_content)
+        else:
+            pl_content = api_o.public_playlist(pl['id'])
+            doc.create_doc(pl['snippet']['title'], pl_content)
+    print("===> {} Playlists successful fetched.".format(len(playlist_list)))
+    print("Playlists fetching finished.")
