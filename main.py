@@ -18,7 +18,19 @@ parser.add_argument('--channelID', help='Paste your Channel ID')
 
 CREDENTIALS_DIR = 'credentials'
 
+
+logo = " ===========================================================================\n"
+logo += "|                                                                           |\n"
+logo += "| ************************       YouTube     ************************       |\n"
+logo += "| ************************       Playlist    ************************       |\n"
+logo += "| ************************       Crawler     ************************       |\n"
+logo += "|                                                                           |\n"
+logo += "|                                                                           |\n"
+logo += " ===========================================================================\n"
+
+
 if __name__ == '__main__':
+    print(logo)
     args = parser.parse_args()
     channel_id = args.channelID
 
