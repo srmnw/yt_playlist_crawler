@@ -1,3 +1,8 @@
 __pycache__/
+.idea/
 
 *.pyc
+
+key_ini.c
+keyfile_ini.c
+
