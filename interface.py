@@ -46,11 +46,11 @@ def answer_all():
     return answer['toppings']
 
 
-def answer_choose_playlist(response):
+def answer_choose_playlist(playlist_list):
     choices = list()
     choices.append(Separator('Select your playlists pls'))
-    for item in response:
-        choices.append(item)
+    for item in playlist_list:
+        choices.append({'name': item['snippet']["title"]})
     questions = [
         {
             'type': 'checkbox',
@@ -63,7 +63,7 @@ def answer_choose_playlist(response):
     if len(answer['toppings']) == 0:
         print('\x1b[6;30;42m' + 'You have to choose at least one option!' + '\x1b[0m')
         time.sleep(2)
-        answer_choose_playlist(response)
+        answer_choose_playlist(playlist_list)
     return answer['toppings']
 
 def answer_private_public():
