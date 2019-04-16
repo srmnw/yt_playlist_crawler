@@ -6,6 +6,8 @@ So you can e.g. save your music discoveries before they will be deleted.
 
 ## Quickstart
 
+The code is written in python3.6. So ensure python3 is correctly installed.
+
 Install required python packages via pip3.
 
 `pip3 install requirements.txt`
