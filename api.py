@@ -57,7 +57,7 @@ class PublicAPI:
         self.developer_key = developer_key
 
     def public_pl_list(self, channel_id):
-        playlist_list = dict()
+        return_obj = list()
 
         api_service_name = "youtube"
         api_version = "v3"
@@ -73,10 +73,13 @@ class PublicAPI:
         )
         while request is not None:
             response = request.execute()
+            for item in response["items"]:
+                return_obj.append(item)
             request = youtube.playlists().list_next(request, response)
-        return response["items"]
+        return return_obj
 
     def public_playlist(self, playlist_id):
+        return_obj = list()
         api_service_name = "youtube"
         api_version = "v3"
         DEVELOPER_KEY = self.developer_key
@@ -89,8 +92,12 @@ class PublicAPI:
             maxResults=50,
             playlistId=playlist_id
         )
-        response = request.execute()
-        return response["items"]
+        while request is not None:
+            response = request.execute()
+            for item in response["items"]:
+                return_obj.append(item)
+            request = youtube.playlists().list_next(request, response)
+        return return_obj
 
 
 
