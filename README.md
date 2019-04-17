@@ -8,6 +8,7 @@ So you can e.g. save your music discoveries before they will be deleted.
 The code is written in Python3.6. So ensure Python3 is correctly installed.
 
 Install required Python packages via pip3.
+
 `pip3 install requirements.txt`
 
 Then launch the program together with your channel ID. The channel ID begins with 'UC' and is e.g. located in your channel URL.
