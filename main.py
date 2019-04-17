@@ -3,6 +3,7 @@
 """
 Author:     Alexander Sarmanow
 Email:      alexander.sarmanow@mailbox.tu-dresden.de
+About:      A script to fetch your YouTube playlists into a file.
 """
 import argparse
 import os
