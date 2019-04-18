@@ -1,7 +1,7 @@
 # yt_playlist_crawler
 
-A simple and interactive command-line tool for Linux/Mac/Win to fetch your YouTube playlist content into a file.
-So you can e.g. save your music discoveries before they will be deleted.
+A simple and interactive command-line tool for Linux/Mac/Win to fetch your YouTube playlist titles into a file (especially for music titles).
+The problem is, that from time to time music videos will be deleted from playlists and you don't have any hint about what kind of track was deleted. So if a track will be deleted in future, you will still know the title of that video.
 
 ## Quickstart
 
