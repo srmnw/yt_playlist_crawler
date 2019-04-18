@@ -11,7 +11,7 @@ Install required Python packages via pip3.
 
 `pip3 install -r requirements.txt`
 
-You need to add an API key and OAuth 2.0 token from GoogleAPIs. Save your API key in `credentials/api_key.txt` and the JSON file for the OAuth 2.0 token in `credentials/`. More info: <https://developers.google.com/youtube/v3/docs/>
+You need to add an API key and OAuth 2.0 token from GoogleAPIs. Paste your API key in `./credentials/api_key.txt` and move the JSON file for the OAuth 2.0 token in `credentials/`. More info: <https://developers.google.com/youtube/v3/docs/>
 
 
 Then launch the program together with your channel ID. The channel ID begins with 'UC' and is e.g. located in your channel URL.
